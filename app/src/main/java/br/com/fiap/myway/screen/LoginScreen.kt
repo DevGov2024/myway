@@ -29,50 +29,50 @@ import androidx.navigation.NavController
 @Composable
 fun LoginScreen (modifier: Modifier = Modifier, navController: NavController) {
 
-  var emailState = remember {
-      mutableStateOf("")
-  }
+    var emailState = remember {
+        mutableStateOf("")
+    }
 
 
     var passState = remember {
         mutableStateOf("")
     }
 
-   Surface(
-       modifier = Modifier
-           .fillMaxSize(),
-           color = Color(0xFF5865DB)
+    Surface(
+        modifier = Modifier
+            .fillMaxSize(),
+        color = Color(0xFF5865DB)
 
 
-   ) {
+    ) {
 
 
-       Column(
+        Column(
 
 
-           modifier = Modifier
+            modifier = Modifier
 
-               .padding(
-                   vertical =32.dp,
-                   horizontal = 48.dp
+                .padding(
+                    vertical =32.dp,
+                    horizontal = 48.dp
 
 
-               ),
+                ),
 
-      verticalArrangement = Arrangement.SpaceEvenly
+            verticalArrangement = Arrangement.SpaceEvenly
 
-       )
+        )
 
-                   
-                {
-           Column {
-               Text(
-                   text = "MyWay",
-                   fontSize = 48.sp,
-                   fontWeight = FontWeight.Bold,
-                   color = Color.White
 
-               )
+        {
+            Column {
+                Text(
+                    text = "MyWay",
+                    fontSize = 48.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White
+
+                )
                 Text(text = "Registre-se",
                     color = Color.White
 
@@ -81,81 +81,84 @@ fun LoginScreen (modifier: Modifier = Modifier, navController: NavController) {
                 )
 
 
-          Image(
-              painter = painterResource(id =br.com.fiap.myway.R.drawable.bum_fiap ),
-              contentDescription ="Descrição da imagem",
-              modifier = Modifier
-                  .fillMaxWidth()
-                  .padding(top = 16.dp)
+                Image(
+                    painter = painterResource(id =br.com.fiap.myway.R.drawable.bum_fiap ),
+                    contentDescription ="Descrição da imagem",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 16.dp)
 
 
-              )
-
-
-
-
-
-
-           }
-      Column(
-           modifier = Modifier.fillMaxWidth()
-      ) {
-          OutlinedTextField(value = emailState.value,
-               onValueChange ={
-
-                   emailState.value =  it
-               },
-               label = {
-                   Text(text = "E-mail")
-               },
-
-              modifier = Modifier.fillMaxWidth()
-
-
-              )
-
-          OutlinedTextField(value = passState.value,
-              onValueChange ={
-                  passState.value = it
-              },
-              label = {
-                  Text(text = "passaword")
-              },
-
-              modifier = Modifier.fillMaxWidth()
-
-
-          )
+                )
 
 
 
 
-      }
-
-                    Button(
-                        onClick = {
 
 
-                            navController.navigate("Home")
-                        },
+            }
+            Column(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                OutlinedTextField(value = emailState.value,
+                    onValueChange ={
 
-                        modifier = Modifier.fillMaxWidth()
+                        emailState.value =  it
+                    },
+                    label = {
+                        Text(text = "E-mail")
+                    },
 
-                    ) {
-                            Text(text = "Login")
-                    }
-
-       }
-
-   }
+                    modifier = Modifier.fillMaxWidth()
 
 
+                )
+
+                OutlinedTextField(value = passState.value,
+                    onValueChange ={
+                        passState.value = it
+                    },
+                    label = {
+                        Text(text = "passaword")
+                    },
+
+                    modifier = Modifier.fillMaxWidth()
+
+
+                )
+
+
+
+
+            }
+
+            Button(
+                onClick = {
+
+
+                    navController.navigate("Home")
+                },
+
+                modifier = Modifier.fillMaxWidth()
+
+            ) {
+                Text(text = "Login")
+            }
+
+        }
 
     }
+
+
+
+}
 
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun LoginScreenPreview() {
-   // LoginScreen()
+    // LoginScreen()
 }
+
+
+

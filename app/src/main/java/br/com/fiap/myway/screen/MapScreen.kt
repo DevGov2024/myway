@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -20,16 +21,28 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import br.com.fiap.myway.R
+import com.google.android.gms.maps.model.CameraPosition
+import com.google.android.gms.maps.model.LatLng
+import com.google.maps.android.compose.GoogleMap
+import com.google.maps.android.compose.rememberCameraPositionState
 
 @Composable
 fun MapScreen(modifier: Modifier = Modifier, navController: NavController) {
+    // Defina a posição da câmera inicial
+    val saoPaulo = LatLng(-23.5505, -46.6333)
+    val cameraPositionState = rememberCameraPositionState {
+        position = CameraPosition.fromLatLngZoom(saoPaulo, 12f)
+    }
 
-    Surface(
-        modifier = Modifier.fillMaxSize(),
+    // Usando Box para sobrepor layouts
+    Box(modifier = Modifier.fillMaxSize()) {
+        // O GoogleMap é colocado primeiro para garantir que ele esteja ao fundo
+        GoogleMap(
+            modifier = Modifier.fillMaxSize(),
+            cameraPositionState = cameraPositionState
+        )
 
-        color = Color(0xFF5865DB)
-
-    ) {
+        // Layout do conteúdo adicional, sobreposto ao mapa
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -38,9 +51,7 @@ fun MapScreen(modifier: Modifier = Modifier, navController: NavController) {
 
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
-
         ) {
-
             Text(
                 text = "My Way",
                 fontSize = 28.sp,
@@ -57,29 +68,10 @@ fun MapScreen(modifier: Modifier = Modifier, navController: NavController) {
 
             Spacer(modifier = Modifier.height(32.dp))
 
-
-            Image(
-                painter = painterResource(id = R.drawable.map2_fiap),
-                contentDescription = "Mapa Simulado",
-                modifier = Modifier
-                    .size(350.dp)
-                    .padding(top = 16.dp)
-            )
-
-
-
-
-
-
-
-
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-
             Column(
                 horizontalAlignment = Alignment.Start,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
                     .background(colorResource(id = R.color.transparent_white))
                     .padding(16.dp)
             ) {
@@ -112,7 +104,6 @@ fun MapScreen(modifier: Modifier = Modifier, navController: NavController) {
 
             Spacer(modifier = Modifier.height(24.dp))
 
-
             Text(text = "Regiões Registradas:", color = Color.White, fontWeight = FontWeight.Bold)
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -125,7 +116,7 @@ fun MapScreen(modifier: Modifier = Modifier, navController: NavController) {
                             .padding(vertical = 8.dp),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text(text = "region", color = Color.White)
+                        Text(text = region, color = Color.White)
                         Text(text = "Acessível", color = Color.White)
                     }
                 }
@@ -134,10 +125,10 @@ fun MapScreen(modifier: Modifier = Modifier, navController: NavController) {
     }
 }
 
-
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun MapScreenPreview() {
-    
-
+    // Exibe a prévia do MapScreen
+    MapScreen(navController = NavController(LocalContext.current))
 }
+
