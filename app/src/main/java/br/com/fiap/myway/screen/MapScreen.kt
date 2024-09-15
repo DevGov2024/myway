@@ -26,29 +26,30 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
 import com.google.maps.android.compose.rememberCameraPositionState
 
+
+
+
 @Composable
 fun MapScreen(modifier: Modifier = Modifier, navController: NavController) {
-    // Defina a posição da câmera inicial
+
     val saoPaulo = LatLng(-23.5505, -46.6333)
     val cameraPositionState = rememberCameraPositionState {
         position = CameraPosition.fromLatLngZoom(saoPaulo, 12f)
     }
 
-    // Usando Box para sobrepor layouts
+
     Box(modifier = Modifier.fillMaxSize()) {
-        // O GoogleMap é colocado primeiro para garantir que ele esteja ao fundo
+
         GoogleMap(
             modifier = Modifier.fillMaxSize(),
             cameraPositionState = cameraPositionState
         )
 
-        // Layout do conteúdo adicional, sobreposto ao mapa
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp)
-                .verticalScroll(rememberScrollState()),
-
+                .padding(16.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -65,62 +66,6 @@ fun MapScreen(modifier: Modifier = Modifier, navController: NavController) {
             }) {
                 Text(text = "Sair")
             }
-
-            Spacer(modifier = Modifier.height(32.dp))
-
-            Column(
-                horizontalAlignment = Alignment.Start,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(colorResource(id = R.color.transparent_white))
-                    .padding(16.dp)
-            ) {
-                Text(text = "Legenda:", color = Color.White, fontWeight = FontWeight.Bold)
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "😊 Rota segura", color = Color.White)
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "😢 Rota Não segura", color = Color.White)
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "🛠️ Pista em construção", color = Color.White)
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "🚧 Interditado", color = Color.White)
-                }
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Text(text = "Regiões Registradas:", color = Color.White, fontWeight = FontWeight.Bold)
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Column {
-                listOf("Região 1", "Região 2", "Região 3").forEach { region ->
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 8.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(text = region, color = Color.White)
-                        Text(text = "Acessível", color = Color.White)
-                    }
-                }
-            }
         }
     }
 }
@@ -128,7 +73,8 @@ fun MapScreen(modifier: Modifier = Modifier, navController: NavController) {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 private fun MapScreenPreview() {
-    // Exibe a prévia do MapScreen
-    MapScreen(navController = NavController(LocalContext.current))
+    val fakeNavController = NavController(LocalContext.current)
+    MapScreen(navController = fakeNavController)
 }
+
 
