@@ -41,7 +41,7 @@ fun LoginScreen (modifier: Modifier = Modifier, navController: NavController) {
     Surface(
         modifier = Modifier
             .fillMaxSize(),
-        color = Color(0xFF5865DB)
+        color = Color(0xFFDC3058)
 
 
     ) {

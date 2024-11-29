@@ -21,7 +21,13 @@ import androidx.navigation.compose.rememberNavController
 import br.com.fiap.myway.screen.HomeScreen
 import br.com.fiap.myway.screen.LoginScreen
 import br.com.fiap.myway.screen.MapScreen
+import br.com.fiap.myway.screen.AuthenticationScreen
+import br.com.fiap.myway.screen.ScoreScreen
+import  br.com.fiap.myway.screen.BiometricsScreen
 import br.com.fiap.myway.ui.theme.MyWayTheme
+import br.com.fiap.myway.screen.FingerprintScreen
+import br.com.fiap.myway.screen.DocumentAnalysisScreen
+import br.com.fiap.myway.screen.SimSwapScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,12 +47,18 @@ class MainActivity : ComponentActivity() {
 
                composable(route = "Login"){ LoginScreen(navController =navController)}
                composable(route = "Home"){ HomeScreen(navController = navController)}
-               composable(route = "Map"){ MapScreen(navController = navController) }
 
-         }
+               composable(route = "Authentication") {AuthenticationScreen(navController = navController)}
+               composable(route = "Score") { ScoreScreen(navController = navController) }
+               composable(route = "Biometrics") { BiometricsScreen(navController = navController) }
+               composable(route = "Biometrics") { BiometricsScreen(navController = navController) }
+               composable(route = "Fingerprint") { FingerprintScreen(navController = navController) }
+               composable(route = "DocumentAnalysis") { DocumentAnalysisScreen(navController = navController) }
+               composable(route = "SimSwap") { SimSwapScreen(navController = navController) }
 
             }
         }
+    }
     }
 }
 

@@ -49,20 +49,20 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
                     .fillMaxWidth()
                     .padding(10.dp)
                     .height(150.dp)
-                    .background(colorResource(id = R.color.azul))
+                    .background(colorResource(id = R.color.vermelho_fiap))
             ) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.align(Alignment.CenterVertically)
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.map_fiap),
+                        painter = painterResource(id = R.drawable.antifraud_fiap),
                         contentDescription = "Logo",
                         modifier = Modifier.size(60.dp)
                     )
                     Spacer(modifier = Modifier.height(5.dp))
                     Text(
-                        text = "Myway",
+                        text = "Soluções antifraudes ",
                         color = Color.White
                     )
                 }
@@ -75,7 +75,7 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .padding(20.dp)
-                    .background(colorResource(id = R.color.azul))
+                    .background(colorResource(id = R.color.vermelho_fiap))
             ) {
                 Text(
                     text = "Bem-vindo ao time!",
@@ -83,7 +83,7 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
                 Text(
-                    text = "MyWay é um aplicativo destinado a ajudar os motoristas a terem um trajeto seguro, possibilitando que os usuários marquem ruas, estradas e trajetos não seguros para o motorista.",
+                    text = "Nosso aplicativo  tem como objetivo de simular os principais fluxos de autenticação e verificação antifraude oferecidos pela QUOD, permitindo que os vendedores apresentem a confiabilidade e a inovação das soluções, incluindo novas tecnologias de biometria e autenticação",
                     color = Color.White,
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
@@ -104,60 +104,20 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
                 horizontalAlignment = Alignment.Start,
                 modifier = Modifier
                     .padding(20.dp)
-                    .background(colorResource(id = R.color.azul))
+                    .background(colorResource(id = R.color.vermelho_fiap))
             ) {
-                Text(text = "Funcionalidades Principais", color = Color.White)
-                Text(text = "• Marcar rotas recomendados e não recomendados para dirigir(dependendo do horário)", color = Color.White)
-                Text(text = "• Compartilhar informações com outros usuários", color = Color.White)
-                Text(text = "• Buscar por locais específicos", color = Color.White)
-                Text(text = "• Ver rotas e pontos de interesse próximos", color = Color.White)
+                Text(text = "Requisitos principais", color = Color.White)
+                Text(text = "• Biometria facial: Simulação de captura de face e validação)", color = Color.White)
+                Text(text = "•  Biometria digital: Simulação de captura de uma impressão digital dos dedos da mão e validação", color = Color.White)
+                Text(text = "•Análise de documento (Documentoscopia): Validação da autenticidade de documentos através da captura de foto do documento, face e validação.", color = Color.White)
+                Text(text = "•  SIM SWAP: Modalidade na qual as operadoras confirmam a troca recente de chip através de chamada a endpoint.", color = Color.White)
+                Text(text = "• Autenticação Cadastral: Formulário para preenchimento e validação de CPF, nome, endereço e telefone celular)..", color = Color.White)
+                Text(text = "•  Score Antifraude: Formulário para preenchimento do CPF e posterior exibição do Score (1-1000 onde quanto maior menor é a chance de fraude)..", color = Color.White)
             }
 
-            Spacer(modifier = Modifier.height(20.dp))
 
 
-            Column(
-                horizontalAlignment = Alignment.Start,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(colorResource(id = R.color.transparent_white))
-                    .padding(16.dp)
-            ) {
-                Text(text = "Legenda:", color = Color.White, fontWeight = androidx.compose.ui.text.font.FontWeight.Bold)
 
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "😊 Rota segura", color = Color.White)
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "😢 Rota Não segura", color = Color.White)
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "🛠️ Pista em construção", color = Color.White)
-                }
-
-                Spacer(modifier = Modifier.height(8.dp))
-
-                Row(verticalAlignment = Alignment.CenterVertically) {
-                    Text(text = "🚧 Interditado", color = Color.White)
-                }
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Navigation Buttons
-            Button(onClick = {
-                navController.navigate("Map")
-            }) {
-                Text(text = "Map")
-            }
 
             Spacer(modifier = Modifier.height(10.dp))
 
@@ -166,6 +126,43 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
             }) {
                 Text(text = "Sair")
             }
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Button(onClick = {
+                navController.navigate("Authentication")
+            }) {
+                Text(text = "Autenticação")
+            }
+
+            Button(onClick = {
+                navController.navigate("Score")
+            }) {
+                Text(text = "Score Antifraude")
+            }
+
+            Button(onClick = {
+                navController.navigate("Biometrics")
+            }) {
+                Text(text = "Biometria Facial")
+            }
+
+            Button(onClick = {
+                navController.navigate("Fingerprint")
+            }) {
+                Text(text = "Biometria Digital")
+            }
+            Button(onClick = {
+                navController.navigate("DocumentAnalysis")
+            }) {
+                Text(text = "Análise de Documento")
+            }
+
+            Button(onClick = {
+                navController.navigate("SimSwap")
+            }) {
+                Text(text = "Verificar SIM SWAP")
+            }
+
         }
     }
 }
@@ -176,4 +173,3 @@ private fun HomeScreenPreview() {
     //HomeScreen()
 }
 
- dhceijeejocjeo
