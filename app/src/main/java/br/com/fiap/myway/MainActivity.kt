@@ -20,7 +20,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.fiap.myway.screen.HomeScreen
 import br.com.fiap.myway.screen.LoginScreen
-import br.com.fiap.myway.screen.MapScreen
+
 import br.com.fiap.myway.screen.AuthenticationScreen
 import br.com.fiap.myway.screen.ScoreScreen
 import  br.com.fiap.myway.screen.BiometricsScreen
