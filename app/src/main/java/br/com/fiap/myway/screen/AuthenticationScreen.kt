@@ -15,13 +15,13 @@ import androidx.navigation.NavController
 fun AuthenticationScreen(navController: NavController) {
     Surface(
         modifier = Modifier.fillMaxSize().padding(16.dp),
-        color = Color(color = 0xFFDC3058)
+        color = Color(color = 0xFF9BC2E1)
     ) {
         Column(
             modifier = Modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.Center
         ) {
-            // Form Fields
+
             val cpf = remember { mutableStateOf("") }
             val name = remember { mutableStateOf("") }
             val address = remember { mutableStateOf("") }
@@ -55,13 +55,13 @@ fun AuthenticationScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(24.dp))
 
 
-            Button(onClick = { /* Add form validation or API logic here */ }) {
+            Button(onClick = {  }) {
                 Text("Validar")
             }
 
             Spacer(modifier = Modifier.height(10.dp))
 
-            // Navigation back to Home
+
             Button(onClick = { navController.popBackStack() }) {
                 Text("Voltar")
             }

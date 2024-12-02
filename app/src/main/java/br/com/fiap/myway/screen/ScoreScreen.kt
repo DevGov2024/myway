@@ -44,8 +44,8 @@ fun ScoreScreen(navController: NavController) {
 
         Button(
             onClick = {
-                if (cpf.text.length == 11) { // Simples validação de CPF
-                    score = (1..1000).random() // Gera score fictício
+                if (cpf.text.length == 11) {
+                    score = (1..1000).random()
                     errorMessage = ""
                 } else {
                     errorMessage = "CPF inválido! Insira 11 dígitos."

@@ -37,7 +37,7 @@ fun BiometricsScreen(navController: NavController) {
 
         if (isCaptured) {
             Image(
-                painter = painterResource(id = R.drawable.bim_fiap), // Substitua pelo ID real da imagem
+                painter = painterResource(id = R.drawable.bim_fiap),
                 contentDescription = "Foto Capturada",
                 modifier = Modifier.size(150.dp)
             )
@@ -50,7 +50,7 @@ fun BiometricsScreen(navController: NavController) {
 
         Button(onClick = {
             isCaptured = true
-            isValid = (1..100).random() > 50 // Validação aleatória simulada
+            isValid = (1..100).random() > 50
         }) {
             Text(text = "Capturar")
         }

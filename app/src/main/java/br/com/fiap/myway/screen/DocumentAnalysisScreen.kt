@@ -87,11 +87,11 @@ fun DocumentAnalysisScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Validação da autenticidade do documento
+
         Button(onClick = {
             if (isDocumentCaptured && isFaceCaptured) {
                 // Simule a validação da autenticidade
-                isValid = (1..100).random() > 50 // Validação aleatória simulada
+                isValid = (1..100).random() > 50
             }
         }) {
             Text(text = "Validar Documento e Face")
@@ -99,7 +99,7 @@ fun DocumentAnalysisScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Exibir resultado da validação
+
         if (isValid) {
             Text(
                 text = "Documento e Face Validados com Sucesso!",

@@ -58,7 +58,9 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
                     Image(
                         painter = painterResource(id = R.drawable.antifraud_fiap),
                         contentDescription = "Logo",
-                        modifier = Modifier.size(60.dp)
+                        modifier = Modifier
+                            .height(200.dp)
+                            .padding(vertical = 20.dp)
                     )
                     Spacer(modifier = Modifier.height(5.dp))
                     Text(
@@ -78,7 +80,7 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
                     .background(colorResource(id = R.color.vermelho_fiap))
             ) {
                 Text(
-                    text = "Bem-vindo ao time!",
+                    text = "Soluções antifraude!",
                     color = Color.White,
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
@@ -87,85 +89,59 @@ fun HomeScreen(modifier: Modifier = Modifier, navController: NavController) {
                     color = Color.White,
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
-                Image(
-                    painter = painterResource(id = R.drawable.welcome_image),
-                    contentDescription = "Welcome Image",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(200.dp)
-                        .padding(vertical = 20.dp)
-                )
+                Button(onClick = {
+                    navController.navigate("Login")
+                }) {
+                    Text(text = "Sair")
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+
+                Button(onClick = {
+                    navController.navigate("Authentication")
+                }) {
+                    Text(text = "Autenticação")
+                }
+
+                Button(onClick = {
+                    navController.navigate("Score")
+                }) {
+                    Text(text = "Score Antifraude")
+                }
+
+                Button(onClick = {
+                    navController.navigate("Biometrics")
+                }) {
+                    Text(text = "Biometria Facial")
+                }
+
+                Button(onClick = {
+                    navController.navigate("Fingerprint")
+                }) {
+                    Text(text = "Biometria Digital")
+                }
+                Button(onClick = {
+                    navController.navigate("DocumentAnalysis")
+                }) {
+                    Text(text = "Análise de Documento")
+                }
+
+                Button(onClick = {
+                    navController.navigate("SimSwap")
+                }) {
+                    Text(text = "Verificar SIM SWAP")
+                }
+
             }
-
-            Spacer(modifier = Modifier.height(20.dp))
-
-
-            Column(
-                horizontalAlignment = Alignment.Start,
-                modifier = Modifier
-                    .padding(20.dp)
-                    .background(colorResource(id = R.color.vermelho_fiap))
-            ) {
-                Text(text = "Requisitos principais", color = Color.White)
-                Text(text = "• Biometria facial: Simulação de captura de face e validação)", color = Color.White)
-                Text(text = "•  Biometria digital: Simulação de captura de uma impressão digital dos dedos da mão e validação", color = Color.White)
-                Text(text = "•Análise de documento (Documentoscopia): Validação da autenticidade de documentos através da captura de foto do documento, face e validação.", color = Color.White)
-                Text(text = "•  SIM SWAP: Modalidade na qual as operadoras confirmam a troca recente de chip através de chamada a endpoint.", color = Color.White)
-                Text(text = "• Autenticação Cadastral: Formulário para preenchimento e validação de CPF, nome, endereço e telefone celular)..", color = Color.White)
-                Text(text = "•  Score Antifraude: Formulário para preenchimento do CPF e posterior exibição do Score (1-1000 onde quanto maior menor é a chance de fraude)..", color = Color.White)
-            }
-
-
-
-
-
-            Spacer(modifier = Modifier.height(10.dp))
-
-            Button(onClick = {
-                navController.navigate("Login")
-            }) {
-                Text(text = "Sair")
-            }
-            Spacer(modifier = Modifier.height(10.dp))
-
-            Button(onClick = {
-                navController.navigate("Authentication")
-            }) {
-                Text(text = "Autenticação")
-            }
-
-            Button(onClick = {
-                navController.navigate("Score")
-            }) {
-                Text(text = "Score Antifraude")
-            }
-
-            Button(onClick = {
-                navController.navigate("Biometrics")
-            }) {
-                Text(text = "Biometria Facial")
-            }
-
-            Button(onClick = {
-                navController.navigate("Fingerprint")
-            }) {
-                Text(text = "Biometria Digital")
-            }
-            Button(onClick = {
-                navController.navigate("DocumentAnalysis")
-            }) {
-                Text(text = "Análise de Documento")
-            }
-
-            Button(onClick = {
-                navController.navigate("SimSwap")
-            }) {
-                Text(text = "Verificar SIM SWAP")
-            }
-
         }
     }
 }
+
+
+
+
+
+
+
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
